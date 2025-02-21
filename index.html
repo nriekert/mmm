@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Worker Proxy</title>
+</head>
+<body>
+    <h1>Service Worker Proxy Example</h1>
+    <p>Check the console for network requests intercepted by the service worker.</p>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js').then(function (registration) {
+                console.log('Service Worker registered with scope:', registration.scope);
+            }).catch(function (error) {
+                console.log('Service Worker registration failed:', error);
+            });
+        } else {
+            console.log('Service Workers are not supported in this browser.');
+        }
+    </script>
+</body>
+</html>
